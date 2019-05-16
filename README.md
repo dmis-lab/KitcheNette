@@ -2,9 +2,9 @@
 
 A Pytorch Implementation of paper
 > KitcheNette: Predicting and Recommending Food Ingredient Pairings using Siamese Neural Networks <br>
-> Park et al., 2019
-> Accepted and to be appear in IJCAI-2019
-> arxiv: in process
+> Park et al., 2019 <br>
+> Accepted and to be appear in IJCAI-2019 <br>
+> arxiv: in process <br>
 
 Currently, we are migrating the code and data. 
 Some of the function may not work for now.
