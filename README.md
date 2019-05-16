@@ -19,9 +19,7 @@ As a vast number of ingredients exist in the culinary world, there are countless
 ## Dataset
 All the data are with code. They are in `data` folder.
 
-Currently, we are migrating the code and data. 
-Some of the function may not work for now.
-Thank you for your patience.
+### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
  ## To run
 Issue the command for ingredient embedding:
@@ -31,8 +29,10 @@ python main.py
 
  ## Contributors
 Donghyeon Park, Keonwoo Kim
+
 DMIS Labatory, Korea University
-Report bugs and missing info to parkdh@gmail.com.
+
+Report bugs and missing info to parkdh@korea.ac.kr.
 
 
 ## Liscense
