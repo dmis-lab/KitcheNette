@@ -1,3 +1,14 @@
+# data files
+data/kitchenette_dataset.pkl
+
+# result files
+results/logs/
+results/*.mdl
+
+# ipython notebook files
+*.ipynb
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
