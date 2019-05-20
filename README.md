@@ -34,8 +34,10 @@ python main.py
 
 ## Contributors
 Donghyeon Park, Keonwoo Kim
-DMIS Labatory, Korea University
-Report bugs and missing info to parkdh@korea.ac.kr.
+
+DMIS Labatory, Korea University, Seoul, South Korea
+
+Please, report bugs and missing info to parkdh@korea.ac.kr.
 
 ## Citation
 
