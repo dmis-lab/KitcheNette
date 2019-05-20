@@ -38,9 +38,8 @@ For your own training, download our pre-processed Dataset (49MB) and place it in
 #### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
 ## Training & Test
-Issue the command for ingredient embedding:
 ```
-python3 main.py --data-path './data/kitchenette_dataset.pkl' --dist-fn 'widedeep' --rep-idx 2
+python3 main.py --data-path './data/kitchenette_dataset.pkl'
 ```
 ## Prediction for *Unknown* Pairings
 - **\[For Prediction\] [kitchenette_pretrained.mdl](https://drive.google.com/open?id=1y5lFnECVdAaEikezeYipIABo4-5gvcbb) (79MB)** <br>
@@ -48,7 +47,7 @@ Download our pre-trained model for prediction of *unknown* pairings <br>
 or you can predict the pairing with your own model by substituting the model file.
 
 ```
-python3 main.py --data-path './data/kitchenette_dataset.pkl' --dist-fn 'widedeep' --rep-idx 2
+python3 main.py --save-prediction-unknowns True --data-path './data/kitchenette_dataset.pkl'
 ```
 
 ## Contributors
