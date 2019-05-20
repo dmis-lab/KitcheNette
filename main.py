@@ -14,26 +14,20 @@ from datetime import datetime
 from functools import partial
 from torch.autograd import Variable
 
-from tasks.create_dataset import IngredientDataset
+from tasks.data_loader import IngredientDataset
 from tasks.run import *
 from tasks.model import Model
 from utils import *
 
 
 LOGGER = logging.getLogger()
-DATA_PATH = './tasks/data/dataset/P7_im2recipe_dataset.pkl'  # For training (Pair scores)
-PAIR_DIR = './tasks/data/pairings/P9_unknown_pairings_3000.csv'  # New pair data for scoring
-EMBED_DIR = "./tasks/data/embeddings/EM1_D3_im2recipe-vocab-vectors.pkl"
-INGR2CATEGORY_DIR = "./tasks/data/ingr2category.pkl"
-CATEGORY2REP_DIR = "./tasks/data/category2rep.pkl"
-
+DATA_PATH = './data/kitchenette_dataset.pkl'  # For training (Pair scores)
 CKPT_DIR = './results/'
 
-MODEL_NAME = 'E999.mdl'
+MODEL_NAME = 'kitchenette_trained.mdl'
 
 def str2bool(v):
     return v.lower() in ('yes', 'true', 't', '1', 'y')
-
 
 argparser = argparse.ArgumentParser()
 argparser.register('type', 'bool', str2bool)
@@ -41,16 +35,8 @@ argparser.register('type', 'bool', str2bool)
 # directories
 argparser.add_argument('--data-path', type=str, default=DATA_PATH,
                        help='Dataset path')
-argparser.add_argument('--pair-dir', type=str, default=PAIR_DIR,
-                       help='Input new pairs')
-argparser.add_argument('--embed-dir', type=str, default=EMBED_DIR,
-                       help='Input new pairs')
 argparser.add_argument('--checkpoint-dir', type=str, default=CKPT_DIR,
                        help='Directory for model checkpoint')
-argparser.add_argument('--ingr2category-dir', type=str, default=INGR2CATEGORY_DIR,
-                       help='Input new pairs')
-argparser.add_argument('--category2rep-dir', type=str, default=CATEGORY2REP_DIR,
-                       help='Input new pairs')
 
 # Run settings
 argparser.add_argument('--model-name', type=str, default=MODEL_NAME,
@@ -87,24 +73,23 @@ argparser.add_argument('--embed-d', type=int, default=1,
 # Train config
 argparser.add_argument('--batch-size', type=int, default=64)
 argparser.add_argument('--epoch', type=int, default=200)
-argparser.add_argument('--learning-rate', type=float, default=5e-4)
-argparser.add_argument('--weight-decay', type=float, default=0)
+argparser.add_argument('--learning-rate', type=float, default=1e-4)
+argparser.add_argument('--weight-decay', type=float, default=1e-5)
 argparser.add_argument('--grad-max-norm', type=int, default=10)
 argparser.add_argument('--grad-clip', type=int, default=10)
 
 # Model config
 argparser.add_argument('--binary', type='bool', default=False)
-argparser.add_argument('--hidden-dim', type=int, default=512)
-argparser.add_argument('--embed-dim', type=int, default=256)
+argparser.add_argument('--hidden-dim', type=int, default=2048)
+argparser.add_argument('--embed-dim', type=int, default=1024)
 argparser.add_argument('--linear-dr', type=float, default=0.2)
 argparser.add_argument('--s-idx', type=int, default=0)
-argparser.add_argument('--rep-idx', type=int, default=0)
+argparser.add_argument('--rep-idx', type=int, default=2)
 
 argparser.add_argument('--category-emb', action='store_true', default=False)
 argparser.add_argument('--category-dim', type=int, default=10)
 
-
-argparser.add_argument('--dist-fn', type=str, default='concat')
+argparser.add_argument('--dist-fn', type=str, default='widedeep')
 argparser.add_argument('--seed', type=int, default=3)
 
 args = argparser.parse_args()
@@ -213,18 +198,14 @@ def run_experiment(model, dataset, run_fn, args):
         run_fn(model, test_loader, dataset, args, train=False)
         print("===================================================================")
 
-
 def get_dataset(path):
     return pickle.load(open(path, 'rb'))
-
 
 def get_run_fn(args):
     return run_reg
 
-
 def get_model(args, dataset):
     dataset.set_rep(args.rep_idx)
-    print("get_model")
     print("Current Representaion Index:", dataset.get_rep)
     print("Current Input Embedding Dimension:", dataset.input_dim)
     model = Model(input_dim=dataset.input_dim,
@@ -239,7 +220,6 @@ def get_model(args, dataset):
                       weight_decay=args.weight_decay).cuda()
     return model
 
-
 def init_logging(args):
     LOGGER.setLevel(logging.INFO)
     fmt = logging.Formatter('%(asctime)s: [ %(message)s ]',
@@ -249,11 +229,14 @@ def init_logging(args):
     LOGGER.addHandler(console)
 
     # For logfile writing
+    if not os.path.isdir(args.checkpoint_dir + 'logs/'):
+        os.mkdir(args.checkpoint_dir + 'logs/')
+        print('...created '+ args.checkpoint_dir + 'logs/')
     logfile = logging.FileHandler(
         args.checkpoint_dir + 'logs/' + args.model_name + '.txt', 'w')
+
     logfile.setFormatter(fmt)
     LOGGER.addHandler(logfile)
-
 
 def init_seed(seed=None):
     if seed is None:
@@ -271,6 +254,8 @@ def main():
 
     # Get datset, run function, model
     dataset = get_dataset(args.data_path)
+    LOGGER.info('Dataset Loaded: {}'.format(args.data_path))
+
     run_fn = get_run_fn(args)
     model_name = args.model_name
 
