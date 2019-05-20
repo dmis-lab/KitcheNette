@@ -26,19 +26,29 @@ All the data are with code. They are in `data` folder.
 
 ### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
- ## To run
+## To run
 Issue the command for ingredient embedding:
 ```
 python main.py
 ```
 
- ## Contributors
+## Contributors
 Donghyeon Park, Keonwoo Kim
-
 DMIS Labatory, Korea University
-
 Report bugs and missing info to parkdh@korea.ac.kr.
 
+## Citation
+
+For now, cite [the Arxiv paper](http://arxiv.org/abs/1905.07261):
+
+```
+@article{park2019kitchenette,
+  title={KitcheNette: Predicting and Recommending Food Ingredient Pairings using Siamese Neural Networks},
+  author={Park, Donghyeon and Kim, Keonwoo and Park, Yonggyu and Shin, Jungwoon and Kang, Jaewoo},
+  journal={arXiv preprint arXiv:1905.07261},
+  year={2019}
+}
+```
 
 ## Liscense
 Apache License 2.0
