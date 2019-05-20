@@ -3,7 +3,8 @@ A Pytorch Implementation of the Paper Named
 > KitcheNette: Predicting and Recommending Food Ingredient Pairings using Siamese Neural Networks <br>
 > Donghyeon Park, Keonwoo Kim, Yonggyu Park, Jungwoon Shin and Jaewoo Kang <br>
 > Accepted and to be appear in IJCAI-2019 <br>
-> arxiv: in process <br>
+> Please, check our arxiv version of our paper: <br>
+> http://arxiv.org/abs/1905.07261
 
 ### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
