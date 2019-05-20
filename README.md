@@ -12,9 +12,9 @@ This repository provides a Pytorch implementation of **KitcheNette**, Siamese ne
 #### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
 ## Pipeline & Abstract
-<p align="center">
 ![figure](/data/figure_together.png)
-**The Blueprint of KitcheNette (Left) & KitcheNette Model Architecture (Right)** <br>
+<p align="center">
+  <b> The Concetp of KitcheNette (Left) & KitcheNette Model Architecture (Right) </b>
 </p>
 
 **Abstract** <br>
