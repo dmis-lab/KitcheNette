@@ -12,10 +12,10 @@ This repository provides a Pytorch implementation of **KitcheNette**, Siamese ne
 ### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
 ## Pipeline & Abstract
-**The blueprint of KitcheNette & KitcheNette Model Architecture 
+**The blueprint of KitcheNette & KitcheNette Model Architecture** <br>
 ![figure](/data/figure_together.png)
 
-**Abstract**
+**Abstract** <br>
 As a vast number of ingredients exist in the culinary world, there are countless food ingredient pairings, but only a small number of pairings have been adopted by chefs and studied by food researchers. In this work, we propose KitcheNette which is a model that predicts food ingredient pairing scores and recommends optimal ingredient pairings. KitcheNette employs Siamese neural networks and is trained on our annotated dataset containing 300K scores of pairings generated from numerous ingredients in food recipes. As the results demonstrate, our model not only outperforms other baseline models but also can recommend complementary food pairings and discover novel ingredient pairings.
 
 ## Prerequisites
