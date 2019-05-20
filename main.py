@@ -21,7 +21,9 @@ from utils import *
 
 
 LOGGER = logging.getLogger()
-DATA_PATH = './data/kitchenette_dataset.pkl'  # For training (Pair scores)
+DATA_PATH = './data/kitchenette_dataset.pkl'  # For training pairing scores
+UNKNOWN_PATH = './data/kitchenette_unknown_pairings.csv' # For predicting unknown pairings (Sample of 3,000 pairings)
+EMBED_PATH = "./data/kitchenette_embeddings.pkl"
 CKPT_DIR = './results/'
 
 MODEL_NAME = 'kitchenette_trained.mdl'
@@ -34,6 +36,10 @@ argparser.register('type', 'bool', str2bool)
 
 # directories
 argparser.add_argument('--data-path', type=str, default=DATA_PATH,
+                       help='Dataset path')
+argparser.add_argument('--unknown-path', type=str, default=UNKNOWN_PATH,
+                       help='Dataset path')
+argparser.add_argument('--embed-path', type=str, default=EMBED_PATH,
                        help='Dataset path')
 argparser.add_argument('--checkpoint-dir', type=str, default=CKPT_DIR,
                        help='Directory for model checkpoint')

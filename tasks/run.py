@@ -23,10 +23,7 @@ from sklearn.metrics import r2_score
 from scipy.stats.stats import pearsonr
 from math import sqrt
 
-
 from utils import *
-from tasks.plot import *
-
 
 LOGGER = logging.getLogger(__name__)
 
@@ -274,11 +271,11 @@ def save_prediction(model, loader, dataset, args):
 def save_prediction_unknowns(model, loader, dataset, args):
     model.eval()
 
-    LOGGER.info('processing {}..'.format(args.pair_dir))
-    embeddings = pickle.load(open(args.embed_dir, 'rb'))
+    LOGGER.info('processing {}..'.format(args.unknown_path))
+    embeddings = pickle.load(open(args.embed_path, 'rb'))
 
-    ingr2category = pickle.load(open(args.ingr2category_dir, 'rb'))
-    category2rep = pickle.load(open(args.category2rep_dir, 'rb'))
+    #ingr2category = pickle.load(open(args.ingr2category_dir, 'rb'))
+    #category2rep = pickle.load(open(args.category2rep_dir, 'rb'))
 
     csv_writer = csv.writer(open(args.checkpoint_dir + 'prediction_unknowns_' +
                                  args.model_name + '.csv', 'w'))
@@ -287,7 +284,7 @@ def save_prediction_unknowns(model, loader, dataset, args):
     #for d_idx, (d1, d1_r, d1_l, d2, d2_r, d2_l, score) in enumerate(loader):
     #    print(d1, d1_r, d1_l, d2, d2_r, d2_l, score)
 
-    df = pd.read_csv(args.pair_dir, sep=",")
+    df = pd.read_csv(args.unknown_path, sep=",")
     df = df.reset_index()
     print(len(df))
 
@@ -297,14 +294,13 @@ def save_prediction_unknowns(model, loader, dataset, args):
         ingr2 = row['ingr2']
         ingr1_r = embeddings[ingr1]
         ingr2_r = embeddings[ingr2]
-        ingr1_c = category2rep[ingr2category[ingr1]]
-        ingr2_c = category2rep[ingr2category[ingr2]]
 
-        ingr1_cate = ingr2category[ingr1]
-        ingr2_cate = ingr2category[ingr2]
+        #ignore this categorical features
+        ingr1_c = embeddings[ingr1]
+        ingr2_c = embeddings[ingr2]
 
         example = [ingr1, ingr1_r, ingr1_c, len(ingr1_r),
-                   ingr2, ingr2_r, ingr2_c, len(ingr2_r), 0, ingr1_cate, ingr2_cate]
+                   ingr2, ingr2_r, ingr2_c, len(ingr2_r), 0]
         batch.append(example)
 
         if len(batch) == 256:
@@ -313,10 +309,8 @@ def save_prediction_unknowns(model, loader, dataset, args):
                                     inputs[5].cuda(), inputs[6].cuda(), inputs[7])
             predictions = outputs[2].data.cpu().numpy()
 
-
-
             for example, pred in zip(batch, predictions):
-                csv_writer.writerow([example[0], example[9], example[4], example[10], pred])
+                csv_writer.writerow([example[0], example[4], pred])
 
             batch = []
 
@@ -333,7 +327,7 @@ def save_prediction_unknowns(model, loader, dataset, args):
         predictions = outputs[2].data.cpu().numpy()
 
         for example, pred in zip(batch, predictions):
-            csv_writer.writerow([example[0], example[9], example[4], example[10], pred])
+            csv_writer.writerow([example[0], example[4], pred])
 
 def save_plot(ingr2vec, args):
     # Plot embed as html
