@@ -14,7 +14,7 @@ This repository provides a Pytorch implementation of **KitcheNette**, Siamese ne
 ## Pipeline & Abstract
 ![figure](/data/figure_together.png)
 <p align="center">
-  <b> The Concetp of KitcheNette (Left) & KitcheNette Model Architecture (Right) </b>
+  <b> The Concept of KitcheNette (Left) & KitcheNette Model Architecture (Right) </b>
 </p>
 
 **Abstract** <br>
@@ -27,7 +27,7 @@ As a vast number of ingredients exist in the culinary world, there are countless
 - Maybe there are more. If you get an error, please try `pip install "pacakge_name"`.
 
 ## Dataset
-All the data are with code. They are in `data` folder.
+Download our pre-processed [Dataset (49MB)](https://drive.google.com/open?id=1tUbwr7COW0lkiGkM3gafeGwtQncWd8wC) and place it in `data` folder. *This dataset contains all the input embeddings and is divided into mini-batches for efficent training.*
 
 #### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
@@ -40,7 +40,9 @@ python3 main.py --data-path './tasks/data/dataset/P21_im2recipe_dataset.pkl' --d
 
 ```
 ## Prediction for *Unknown* Pairings
-Issue the command for ingredient embedding:
+Download our pre-trained model for prediction of *unknown* pairings
+or you can predict the pairing with your own model by substituting the model file.
+
 ```
 bash predict.sh
 ```
