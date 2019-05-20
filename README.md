@@ -41,7 +41,7 @@ Download our pre-trained model for prediction of *unknown* pairings <br>
 or you can predict the pairing with your own model by substituting the model file.
 
 ```
-python3 main.py --save-prediction-unknowns True --data-path './data/kitchenette_dataset.pkl'
+python3 main.py --save-prediction-unknowns True --model-name 'kitchenette_pretrained.mdl' --data-path './data/kitchenette_dataset.pkl'
 ```
 
 ## Contributors
