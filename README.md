@@ -9,8 +9,6 @@ This repository provides a Pytorch implementation of **KitcheNette**, Siamese ne
 > You can try our demo version of **KitchenNette**: <br>
 > *http://kitchenette.korea.ac.kr/*
 
-#### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
-
 ## Pipeline & Abstract
 ![figure](/data/figure_together.png)
 <p align="center">
@@ -32,10 +30,6 @@ You can download and see our 300k food ingredient pairing scores defined on NPMI
 
 - **\[For Training\] [kitchenette_dataset.pkl](https://drive.google.com/open?id=1tUbwr7COW0lkiGkM3gafeGwtQncWd8wC) (49MB)** <br>
 For your own training, download our pre-processed Dataset (49MB) and place it in `data` folder. This pre-processed dataset 1) contains all the input embeddings, 2) is split into train(8):valid(1):test(2), and 3) and each split is divided into mini-batches for efficent training.
-
-
-
-#### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
 ## Training & Test
 ```
