@@ -2,9 +2,9 @@
 This repository provides a Pytorch implementation of **KitcheNette**, Siamese neural networks and is trained on our annotated dataset containing 300K scores of pairings generated from numerous ingredients in food recipes. **KitcheNette** is able to predict and recommend complementary and novel food ingredients pairings at the same time.
 
 > **KitcheNette: Predicting and Recommending Food Ingredient Pairings using Siamese Neural Networks** <br>
-> *Donghyeon Park, Keonwoo Kim, Yonggyu Park, Jungwoon Shin and Jaewoo Kang* <br>
+> *Donghyeon Park\*, Keonwoo Kim, Yonggyu Park, Jungwoon Shin and Jaewoo Kang* <br>
 > *Accepted and to be appear in IJCAI-2019* <br><br>
-> *Please, check our arxiv version of our paper:* <br>
+> *arxiv version of our paper is available at:* <br>
 > *http://arxiv.org/abs/1905.07261* <br><br>
 > You can try our demo version of **KitchenNette**: <br>
 > *http://kitchenette.korea.ac.kr/*
@@ -27,24 +27,28 @@ As a vast number of ingredients exist in the culinary world, there are countless
 - Maybe there are more. If you get an error, please try `pip install "pacakge_name"`.
 
 ## Dataset
-Download our pre-processed [Dataset (49MB)](https://drive.google.com/open?id=1tUbwr7COW0lkiGkM3gafeGwtQncWd8wC) and place it in `data` folder. *This dataset contains all the input embeddings and is divided into mini-batches for efficent training.*
+- **[kitchenette_pairing_scores.csv](https://drive.google.com/open?id=1hX7L3UZUVspNHCjDbgCjuI5niQlBXXMh) (78MB)** <br>
+You can download and see our 300k food ingredient pairing scores defined on NPMI.
+
+- **\[For Training\] [kitchenette_dataset.pkl](https://drive.google.com/open?id=1tUbwr7COW0lkiGkM3gafeGwtQncWd8wC) (49MB)** <br>
+For your own training, download our pre-processed Dataset (49MB) and place it in `data` folder. This pre-processed dataset 1) contains all the input embeddings, 2) is split into train(8):valid(1):test(2), and 3) and each split is divided into mini-batches for efficent training.
+
+
 
 #### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
 ## Training & Test
 Issue the command for ingredient embedding:
 ```
-bash train.sh
-or
-python3 main.py --data-path './tasks/data/dataset/P21_im2recipe_dataset.pkl' --dist-fn 'widedeep' --rep-idx 2
-
+python3 main.py --data-path './data/kitchenette_dataset.pkl' --dist-fn 'widedeep' --rep-idx 2
 ```
 ## Prediction for *Unknown* Pairings
-Download our pre-trained model for prediction of *unknown* pairings
+- **\[For Prediction\] [kitchenette_pretrained.mdl](https://drive.google.com/open?id=1y5lFnECVdAaEikezeYipIABo4-5gvcbb) (79MB)** <br>
+Download our pre-trained model for prediction of *unknown* pairings <br>
 or you can predict the pairing with your own model by substituting the model file.
 
 ```
-bash predict.sh
+python3 main.py --data-path './data/kitchenette_dataset.pkl' --dist-fn 'widedeep' --rep-idx 2
 ```
 
 ## Contributors
@@ -52,7 +56,7 @@ Donghyeon Park, Keonwoo Kim
 
 DMIS Labatory, Korea University, Seoul, South Korea
 
-Please, report bugs and missing info to parkdh@korea.ac.kr.
+Please, report bugs and missing info to Donghyeon `parkdh (at) korea.ac.kr`.
 
 ## Citation
 
