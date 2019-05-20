@@ -39,7 +39,7 @@ Report bugs and missing info to parkdh@korea.ac.kr.
 
 ## Citation
 
-For now, cite [the Arxiv paper](http://arxiv.org/abs/1905.07261):
+For now, cite *[arxiv](http://arxiv.org/abs/1905.07261)* version of our paper:
 
 ```
 @article{park2019kitchenette,
