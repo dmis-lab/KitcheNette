@@ -1,9 +1,11 @@
 # data files
-data/kitchenette_dataset.pkl
+data/*.pkl
+data/*.csv
 
 # result files
 results/logs/
 results/*.mdl
+results/*.csv
 
 # ipython notebook files
 *.ipynb
