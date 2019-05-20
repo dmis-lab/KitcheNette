@@ -5,9 +5,8 @@ This repository provides a Pytorch implementation of **KitcheNette**, Siamese ne
 > *Donghyeon Park, Keonwoo Kim, Yonggyu Park, Jungwoon Shin and Jaewoo Kang* <br>
 > *Accepted and to be appear in IJCAI-2019* <br><br>
 > *Please, check our arxiv version of our paper:* <br>
-> *http://arxiv.org/abs/1905.07261*
-
-You can try our demo version of **KitchenNette**:
+> *http://arxiv.org/abs/1905.07261* <br><br>
+> You can try our demo version of **KitchenNette**: <br>
 > *http://kitchenette.korea.ac.kr/*
 
 ### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
@@ -26,10 +25,18 @@ All the data are with code. They are in `data` folder.
 
 ### Currently, we are migrating the code and data. Some of the function may not work for now. Thank you for your patience.
 
-## To run
+## Training & Test
 Issue the command for ingredient embedding:
 ```
-python main.py
+bash train.sh
+or
+python3 main.py --data-path './tasks/data/dataset/P21_im2recipe_dataset.pkl' --dist-fn 'widedeep' --rep-idx 2
+
+```
+## Prediction for *Unknown* Pairings
+Issue the command for ingredient embedding:
+```
+bash predict.sh
 ```
 
 ## Contributors
