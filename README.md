@@ -36,12 +36,22 @@ For your own training, download our pre-processed Dataset (49MB) and place it in
 python3 main.py --data-path './data/kitchenette_dataset.pkl'
 ```
 ## Prediction for *Unknown* Pairings
-- **\[For Prediction\] [kitchenette_pretrained.mdl](https://drive.google.com/open?id=1y5lFnECVdAaEikezeYipIABo4-5gvcbb) (79MB)** <br>
+You need the following three files to predict *unknown* pairings
+- **[kitchenette_pretrained.mdl](https://drive.google.com/open?id=1y5lFnECVdAaEikezeYipIABo4-5gvcbb) (79MB)** <br>
 Download our pre-trained model for prediction of *unknown* pairings <br>
-or you can predict the pairing with your own model by substituting the model file.
+or you can predict the pairing with your own model by substituting the model file. <br>
 
+- **[kitchenette_unknown_pairings.mdl]() (-MB)** <br>
+Download the sample unknown pairings.
+
+- **[kitchenette_embeddings.pkl]() (-MB)** <br>
+Download the sample ingredient embeddings for exisiting ingredients.
 ```
-python3 main.py --save-prediction-unknowns True --model-name 'kitchenette_pretrained.mdl' --data-path './data/kitchenette_dataset.pkl'
+python3 main.py --save-prediction-unknowns True \\
+                --model-name 'kitchenette_pretrained.mdl' \\
+                --unknown-path './data/kitchenette_unknown_pairings.csv' \\
+                --embed-path './data/kitchenette_embeddings.pkl' \\
+                --data-path './data/kitchenette_dataset.pkl'
 ```
 
 ## Contributors
