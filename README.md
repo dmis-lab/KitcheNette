@@ -4,8 +4,8 @@ This repository provides a Pytorch implementation of **KitcheNette**, Siamese ne
 > **KitcheNette: Predicting and Recommending Food Ingredient Pairings using Siamese Neural Networks** <br>
 > *Donghyeon Park\*, Keonwoo Kim, Yonggyu Park, Jungwoon Shin and Jaewoo Kang* <br>
 > *Accepted and to be appear in IJCAI-2019* <br><br>
-> *arxiv version of our paper is available at:* <br>
-> *http://arxiv.org/abs/1905.07261* <br><br>
+> *Our paper is available at:* <br>
+> *https://www.ijcai.org/proceedings/2019/822* <br><br>
 > You can try our demo version of **KitchenNette**: <br>
 > *http://kitchenette.korea.ac.kr/*
 
@@ -67,14 +67,11 @@ DMIS Labatory, Korea University, Seoul, South Korea <br>
 Please, report bugs and missing info to Donghyeon `parkdh (at) korea.ac.kr`.
 
 ## Citation
-
-For now, cite *[arxiv](http://arxiv.org/abs/1905.07261)* version of our paper:
-
 ```
 @article{park2019kitchenette,
-  title={KitcheNette: Predicting and Recommending Food Ingredient Pairings using Siamese Neural Networks},
+  title={KitcheNette: Predicting and Ranking Food Ingredient Pairings using Siamese Neural Networks},
   author={Park, Donghyeon and Kim, Keonwoo and Park, Yonggyu and Shin, Jungwoon and Kang, Jaewoo},
-  journal={arXiv preprint arXiv:1905.07261},
+  journal={Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence},
   year={2019}
 }
 ```
