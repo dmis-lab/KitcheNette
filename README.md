@@ -1,7 +1,7 @@
-# KitcheNette: Predicting and Recommending Food Ingredient Pairings using Siamese Neural Networks
+# KitcheNette: Predicting and Ranking Food Ingredient Pairings using Siamese Neural Networks
 This repository provides a Pytorch implementation of **KitcheNette**, Siamese neural networks and is trained on our annotated dataset containing 300K scores of pairings generated from numerous ingredients in food recipes. **KitcheNette** is able to predict and recommend complementary and novel food ingredients pairings at the same time.
 
-> **KitcheNette: Predicting and Recommending Food Ingredient Pairings using Siamese Neural Networks** <br>
+> **KitcheNette: Predicting and Ranking Food Ingredient Pairings using Siamese Neural Networks** <br>
 > *Donghyeon Park\*, Keonwoo Kim, Yonggyu Park, Jungwoon Shin and Jaewoo Kang* <br>
 > *Accepted and to be appear in IJCAI-2019* <br><br>
 > *Our paper is available at:* <br>
