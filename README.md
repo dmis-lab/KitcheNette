@@ -8,6 +8,8 @@ This repository provides a Pytorch implementation of **KitcheNette**, Siamese ne
 > *https://www.ijcai.org/proceedings/2019/822* <br><br>
 > You can try our demo version of **KitchenNette**: <br>
 > *http://kitchenette.korea.ac.kr/*
+> 
+> For more details to find out what we do, please visit *https://dmis.korea.ac.kr/*
 
 ## Pipeline & Abstract
 ![figure](/data/figure_together.png)
